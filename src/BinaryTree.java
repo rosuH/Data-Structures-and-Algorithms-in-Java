@@ -88,11 +88,12 @@ public class BinaryTree {
     }
 
     private int minValue(Node node){
-        if (node == null){
-            return 10000;
-        }else {
-            return Math.min(Math.min(node.mLeft.mData, node.mRight.mData), node.mData);
+        Node curt = node;
+        while (curt.mLeft !=  null){
+            curt = curt.mLeft;
         }
+
+        return curt.mData;
     }
 
 

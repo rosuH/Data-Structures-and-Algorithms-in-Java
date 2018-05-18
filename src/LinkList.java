@@ -1,6 +1,6 @@
 public class LinkList {
 
-    private Node mHead = new Node();
+    private Node mHead;
 
 
     private static class Node{
@@ -10,9 +10,6 @@ public class LinkList {
             mNext = null;
             mData = data;
         }
-        public Node(){
-
-        }
     }
 
     public LinkList createLinkList(int[] dataAry){
@@ -21,10 +18,13 @@ public class LinkList {
     }
 
     private void createLinkList(Node head, int[] dataArray){
+        mHead = new Node(dataArray[0]);
         Node tmp = mHead;
         for (int data:dataArray){
-            tmp.mNext = new Node(data);
-            tmp = tmp.mNext;
+            if (data != dataArray[0]){
+                tmp.mNext = new Node(data);
+                tmp = tmp.mNext;
+            }
         }
     }
 

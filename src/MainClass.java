@@ -15,12 +15,13 @@ public class MainClass {
         for (int data: array){
             binaryTree.insert(data);
         }
-        System.out.println(binaryTree.printfAll());
-//        LinkList linkList = new LinkList().createLinkList(array);
-//        linkList.deleteNode(10);
-//        System.out.println(linkList.toString());
-        System.out.println("size = " + binaryTree.size());
-        System.out.println("maxDepth = " + binaryTree.maxDepth());
-        System.out.println("minValue = " + binaryTree.minValue());
+
+        LinkList linkList = new LinkList().createLinkList(array);
+        linkList.deleteNode(array[1]);
+        System.out.println("linkList: " + linkList.toString());
+
+        System.out.println("binaryTree size = " + binaryTree.size());
+        System.out.println("binaryTree maxDepth = " + binaryTree.maxDepth());
+        System.out.println("binaryTree minValue = " + binaryTree.minValue());
     }
 }
