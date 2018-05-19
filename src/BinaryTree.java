@@ -1,3 +1,8 @@
+import com.sun.org.apache.regexp.internal.RE;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree {
     private Node mRoot;
 
@@ -62,26 +67,56 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 求二叉树最大深度
+     * @return
+     */
     public int maxDepth(){
-        return maxDepth(mRoot);
+        int depthQ = maxDepthByQueue(mRoot);
+        int depthR = maxDepthByRecursive(mRoot);
+        if(depthQ == depthR){
+            return depthQ;
+        }else {
+            System.out.println("maxDepthByQueue = " + depthQ);
+            System.out.println("maxDepthByRecursive() = " + depthR);
+            return 0;
+        }
     }
 
-    private int maxDepth(Node node){
+    // 递归方法实现
+    private int maxDepthByRecursive(Node node){
         if (node == null){
             return 0;
         }
-        return Math.max(maxDepth(node.mLeft), maxDepth(node.mRight)) + 1;
+        return Math.max(maxDepthByRecursive(node.mLeft), maxDepthByRecursive(node.mRight)) + 1;
     }
-//    private int maxDepth(Node node){
-//        if (node == null){
-//            return 0;
-//        }else {
-//            int lDepth = maxDepth(node.mLeft);
-//            int rDepth = maxDepth(node.mRight);
-//
-//            return Math.max(lDepth, rDepth) + 1;
-//        }
-//    }
+
+    // 队列实现
+    private int maxDepthByQueue(Node root){
+        if (root == null){
+            return 0;
+        }
+
+        int depth = 0;
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()){
+            depth++;
+            int qLen = queue.size();
+            for (int i = 0; i < qLen; i++){
+                Node node = queue.poll();
+                if (node.mLeft != null){
+                    queue.offer(node.mLeft);
+                }
+                if (node.mRight != null){
+                    queue.offer(node.mRight);
+                }
+            }
+        }
+        return depth;
+    }
+
 
     public int minValue(){
         return minValue(mRoot);

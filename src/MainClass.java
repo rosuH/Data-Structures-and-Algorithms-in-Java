@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainClass {
@@ -15,6 +16,7 @@ public class MainClass {
         for (int data: array){
             binaryTree.insert(data);
         }
+
 
         LinkList linkList = new LinkList().createLinkList(array);
         linkList.deleteNode(array[1]);
