@@ -1,8 +1,15 @@
+/**
+ * 链表类，包含一个 mHead 头结点变量、内部静态结点类和操作链表的方法
+ * @author rosuh
+ */
 public class LinkList {
 
     private Node mHead;
 
 
+    /**
+     * 内部静态结点类
+     */
     private static class Node{
         private Node mNext;
         private int mData;
@@ -12,11 +19,21 @@ public class LinkList {
         }
     }
 
+    /**
+     * 创建链表
+     * @param dataAry  整数型数组数据集
+     * @return  返回创建好的链表对象
+     */
     public LinkList createLinkList(int[] dataAry){
         createLinkList(mHead, dataAry);
         return this;
     }
 
+    /**
+     * 创建链表
+     * @param head 传入头结点
+     * @param dataArray 传入数组对象
+     */
     private void createLinkList(Node head, int[] dataArray){
         mHead = new Node(dataArray[0]);
         Node tmp = mHead;
@@ -28,6 +45,11 @@ public class LinkList {
         }
     }
 
+    /**
+     * 搜索是否包含特定值
+     * @param key 要搜索的值
+     * @return  true 表示存在，反之表示不存在
+     */
     public boolean lookup(int key){
         return lookup(mHead, key);
     }
@@ -43,6 +65,11 @@ public class LinkList {
         return false;
     }
 
+    /**
+     * 根据传入值删除结点
+     * @param key 要删除的值
+     * @return  删除成功返回被删除的结点；反之返回 null
+     */
     public Node deleteNode(int key){
         return deleteNode(mHead, key);
     }
@@ -62,6 +89,9 @@ public class LinkList {
         return null;
     }
 
+    /**
+     * 反转链表方法
+     */
     public void reverse(){
         mHead = reverse(mHead);
     }
@@ -78,6 +108,9 @@ public class LinkList {
         return prev;
     }
 
+    /**
+     * 递归反转链表方法
+     */
     public void reverseNode(){
         mHead = reverseNode(mHead);
     }
