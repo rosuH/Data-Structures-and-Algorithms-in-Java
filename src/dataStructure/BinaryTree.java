@@ -1,3 +1,5 @@
+package dataStructure;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -11,7 +13,7 @@ public class BinaryTree {
     /**
      * 静态结点类
      */
-    private static class Node{
+    public static class Node{
         private Node mLeft;
         private Node mRight;
         private int mData;
@@ -21,12 +23,24 @@ public class BinaryTree {
             mRight = null;
             mData = data;
         }
+
+        public Node getmLeft() {
+            return mLeft;
+        }
+
+        public Node getmRight() {
+            return mRight;
+        }
+
+        public int getmData() {
+            return mData;
+        }
     }
 
     /**
      * 二叉树构造方法，初始化根结点为 null
      */
-    public void BinaryTree(){
+    public void binaryTree(){
         mRoot = null;
     }
 
@@ -106,7 +120,11 @@ public class BinaryTree {
         }
     }
 
-    // 递归方法实现
+    /**
+     * 递归方法实现
+     * @param node
+     * @return
+     */
     private int maxDepthByRecursive(Node node){
         if (node == null){
             return 0;
@@ -114,7 +132,11 @@ public class BinaryTree {
         return Math.max(maxDepthByRecursive(node.mLeft), maxDepthByRecursive(node.mRight)) + 1;
     }
 
-    // 队列实现
+    /**
+     * 队列实现
+     * @param root
+     * @return
+     */
     private int maxDepthByQueue(Node root){
         if (root == null){
             return 0;
@@ -150,6 +172,7 @@ public class BinaryTree {
     }
 
     private int minValue(Node node){
+        // what if node == null ?
         Node curt = node;
         while (curt.mLeft !=  null){
             curt = curt.mLeft;
@@ -258,5 +281,9 @@ public class BinaryTree {
             String str = "node = " + node + ", mData = " + node.mData + "\n";
             return printfAll(node.mLeft) + str + printfAll(node.mRight);
         }
+    }
+
+    public Node getmRoot() {
+        return mRoot;
     }
 }

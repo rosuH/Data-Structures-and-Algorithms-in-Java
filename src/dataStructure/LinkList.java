@@ -1,3 +1,5 @@
+package dataStructure;
+
 /**
  * 链表类，包含一个 mHead 头结点变量、内部静态结点类和操作链表的方法
  * @author rosuh

@@ -1,10 +1,16 @@
+import dataStructure.BinaryTree;
+import dataStructure.LinkList;
+
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * @author rosuh
+ */
 public class MainClass {
     public static void main(String[] args){
-        int count = new Random().nextInt(100);
+        int count = new Random().nextInt(20);
         Set<Integer> set = new HashSet<>();
         int[] source = new int[count];
 
@@ -19,12 +25,12 @@ public class MainClass {
         }
 
         // 获取去重后的数组
-        int array[] = new int[set.size()];
+        int[] array = new int[set.size()];
         Integer[] integers = (Integer[]) set.toArray(new Integer[set.size()]);
         for (int i = 0; i < integers.length; i++){
             array[i] = integers[i];
         }
-        
+
         // 创建链表并插入值
         LinkList linkList = new LinkList().createLinkList(array);
         linkList.deleteNode(array[1]);
@@ -32,7 +38,7 @@ public class MainClass {
 
         // 创建二叉树并插入值
         BinaryTree binaryTree = new BinaryTree();
-        binaryTree.BinaryTree();
+        binaryTree.binaryTree();
         for (int data: array){
             binaryTree.insert(data);
         }
@@ -47,4 +53,5 @@ public class MainClass {
         binaryTree.printfPaths();
 
     }
+
 }
