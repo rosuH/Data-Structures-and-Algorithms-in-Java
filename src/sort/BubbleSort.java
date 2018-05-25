@@ -4,7 +4,8 @@ import java.util.Random;
 
 /**
  * 冒泡排序实现
- * author: rosuh 2018/05/24
+ * @author rosuh 2018/05/24
+ * 冒泡排序因为每一轮排序完成，都能获得最大数，所以每次循环次数都是 -1 的
  */
 public class BubbleSort {
     public static void main(String[] args){
