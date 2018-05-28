@@ -32,11 +32,11 @@ public class BubbleSort {
             System.out.println();
 
             swap = false;
-            for (int i = 0; i < ints.length; i ++){
-                if (i != ints.length - 1 && ints[i] > ints[i+1]){
+            for (int i = 1; i < ints.length; i ++){
+                if (ints[i] < ints[i-1]){
                     int tmp = ints[i];
-                    ints[i] = ints[i+1];
-                    ints[i+1] = tmp;
+                    ints[i] = ints[i-1];
+                    ints[i-1] = tmp;
                     swap = true;
                 }
             }

@@ -2,6 +2,11 @@ package sort;
 
 import java.util.Random;
 
+/**
+ * 插入排序
+ * @author rosuh 2018/05/28
+ */
+
 public class InsertSort {
     public static void main(String[] args){
         int count = new Random().nextInt(100);
